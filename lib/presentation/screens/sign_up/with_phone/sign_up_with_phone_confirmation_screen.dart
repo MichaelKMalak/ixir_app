@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/domain/entities/user_entity.dart';
-import 'package:ixir_app/presentation/bloc/auth/auth_cubit.dart';
-import 'package:ixir_app/presentation/bloc/phone_auth/phone_auth_cubit.dart';
-import 'package:ixir_app/presentation/bloc/user/user_cubit.dart';
-import 'package:ixir_app/presentation/navigation/route_paths.dart';
-import 'package:ixir_app/presentation/widgets/buttons/custom_button_widget.dart';
-import 'package:ixir_app/presentation/widgets/logo_header_app_bar.dart';
-import 'package:ixir_app/presentation/widgets/panel_over_scaffold.dart';
-import 'package:ixir_app/presentation/widgets/progress_widget.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_colors.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_dimensions.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_styles.dart';
-import 'package:lorem_ipsum/lorem_ipsum.dart';
+
+import '../../../../domain/entities/user_entity.dart';
+import '../../../bloc/phone_auth/phone_auth_cubit.dart';
+import '../../../navigation/route_paths.dart';
+import '../../../widgets/buttons/custom_button_widget.dart';
+import '../../../widgets/panel_over_scaffold.dart';
+import '../../../widgets/progress_widget.dart';
+import '../../../widgets/theme/app_colors.dart';
+import '../../../widgets/theme/app_dimensions.dart';
+import '../../../widgets/theme/app_styles.dart';
 
 class SignUpWithPhoneConfirmationScreen extends StatelessWidget {
   final UserEntity newUser;

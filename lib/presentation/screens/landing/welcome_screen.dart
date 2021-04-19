@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ixir_app/presentation/navigation/route_paths.dart';
-import 'package:ixir_app/presentation/widgets/image_paths.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_colors.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_dimensions.dart';
-import 'package:ixir_app/presentation/widgets/logo_header_app_bar.dart';
-import 'package:ixir_app/presentation/widgets/buttons/custom_button_widget.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_styles.dart';
-import 'package:lorem_ipsum/lorem_ipsum.dart';
+
+import '../../navigation/route_paths.dart';
+import '../../widgets/buttons/custom_button_widget.dart';
+import '../../widgets/image_paths.dart';
+import '../../widgets/logo_header_app_bar.dart';
+import '../../widgets/theme/app_colors.dart';
+import '../../widgets/theme/app_dimensions.dart';
+import '../../widgets/theme/app_styles.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ixir_app/presentation/widgets/image_paths.dart';
 
 import '../../../bloc/email_auth/email_auth_cubit.dart';
 import '../../../navigation/route_paths.dart';
 import '../../../widgets/buttons/custom_button_widget.dart';
+import '../../../widgets/image_paths.dart';
 import '../../../widgets/logo_header_app_bar.dart';
 import '../../../widgets/theme/app_colors.dart';
 import '../../../widgets/theme/app_dimensions.dart';

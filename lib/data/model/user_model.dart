@@ -25,9 +25,9 @@ class UserModel extends UserEntity {
   factory UserModel.fromSnapshot(DocumentSnapshot snapshot) {
     final Map<String, dynamic> data = snapshot.data();
     return UserModel(
-      email: snapshot.data()['email'] as String,
-      phoneNumber: snapshot.data()['phone_number'] as String,
-      uid: snapshot.data()['uid'] as String,
+      email: data['email'] as String,
+      phoneNumber: data['phone_number'] as String,
+      uid: data['uid'] as String,
       lastName: data['last_name'] as String,
       braceletId: data['bracelet_id'] as String,
       dateOfBirth: DateTime.parse(data['date_of_birth'] as String)?.toLocal(),

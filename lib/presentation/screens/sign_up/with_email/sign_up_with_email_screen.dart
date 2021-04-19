@@ -1,11 +1,11 @@
 import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/presentation/utils/string_utils.dart';
 
 import '../../../../domain/entities/user_entity.dart';
 import '../../../bloc/email_auth/email_auth_cubit.dart';
 import '../../../navigation/route_paths.dart';
+import '../../../utils/string_utils.dart';
 import '../../../widgets/buttons/custom_button_widget.dart';
 import '../../../widgets/panel_over_scaffold.dart';
 import '../../../widgets/progress_widget.dart';

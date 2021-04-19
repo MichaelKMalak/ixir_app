@@ -3,14 +3,14 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ixir_app/domain/usecases/is_sign_in_usecase.dart';
-import 'package:ixir_app/domain/usecases/resend_phone_verification_usecase.dart';
-import 'package:ixir_app/presentation/utils/error_message_provider.dart';
 
 import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecases/is_sign_in_usecase.dart';
+import '../../../domain/usecases/resend_phone_verification_usecase.dart';
 import '../../../domain/usecases/sign_in_with_phone_number_usecase.dart';
 import '../../../domain/usecases/sign_up_with_sms_verification_usecase.dart';
 import '../../../domain/usecases/verify_phone_number_usecase.dart';
+import '../../utils/error_message_provider.dart';
 
 part 'phone_auth_state.dart';
 

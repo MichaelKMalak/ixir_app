@@ -3,16 +3,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/presentation/bloc/connect_bracelet/connect_bracelet_cubit.dart';
-import 'package:ixir_app/presentation/bloc/email_auth/email_auth_cubit.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'common.dart';
 import 'injection_container.dart' as di;
 import 'presentation/bloc/auth/auth_cubit.dart';
+import 'presentation/bloc/connect_bracelet/connect_bracelet_cubit.dart';
+import 'presentation/bloc/email_auth/email_auth_cubit.dart';
 import 'presentation/bloc/phone_auth/phone_auth_cubit.dart';
 import 'presentation/bloc/user/user_cubit.dart';
 import 'presentation/navigation/route_generator.dart';
 import 'presentation/navigation/route_paths.dart';
 import 'presentation/widgets/theme/app_themes.dart';
+import 'common.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,9 +55,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Ixir',
-        //  supportedLocales: S.delegate.supportedLocales,
-        // supportedLocales: Localizations.,
-        // localizationsDelegates: Localizations.delegate,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [Locale('en', ''), Locale('de', '')],
         theme: AppThemes.getMainTheme(context),
         initialRoute: RoutePaths.splashScreen,
         onGenerateRoute: RouteGenerator.generateRoute,

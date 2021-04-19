@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_dimensions.dart';
 
 class LogoHeaderAppBar extends StatelessWidget {
   final Color backgroundColor;

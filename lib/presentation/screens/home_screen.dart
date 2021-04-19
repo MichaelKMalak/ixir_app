@@ -1,16 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/presentation/bloc/auth/auth_cubit.dart';
-import 'package:ixir_app/presentation/bloc/user/user_cubit.dart';
-import 'package:ixir_app/presentation/navigation/route_paths.dart';
-import 'package:ixir_app/presentation/screens/splash_screen.dart';
-import 'package:ixir_app/presentation/widgets/buttons/custom_button_widget.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_colors.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_dimensions.dart';
 
 import '../../domain/entities/user_entity.dart';
+import '../bloc/auth/auth_cubit.dart';
+import '../bloc/user/user_cubit.dart';
+import '../navigation/route_paths.dart';
+import '../widgets/buttons/custom_button_widget.dart';
+import '../widgets/theme/app_colors.dart';
+import '../widgets/theme/app_dimensions.dart';
 import 'connect_bracelet/enter_bracelet_serial_screen.dart';
+import 'splash_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final UserEntity user;

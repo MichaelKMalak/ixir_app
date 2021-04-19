@@ -1,13 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
-import 'package:ixir_app/domain/usecases/is_bracelet_id_valid_usecase.dart';
-import 'package:ixir_app/domain/usecases/resend_email_verification_usecase.dart';
-import 'package:ixir_app/domain/usecases/resend_phone_verification_usecase.dart';
-import 'package:ixir_app/domain/usecases/sign_in_with_email_usecase.dart';
-import 'package:ixir_app/domain/usecases/register_bracelet_usecase.dart';
-import 'package:ixir_app/presentation/bloc/connect_bracelet/connect_bracelet_cubit.dart';
-import 'package:ixir_app/presentation/bloc/user/user_cubit.dart';
 
 import 'data/datasource/firebase_remote_datasource.dart';
 import 'data/datasource/firebase_remote_datasource_impl.dart';
@@ -16,16 +9,23 @@ import 'data/repositories/firebase_repository_impl.dart';
 import 'domain/repositories/firebase_repository.dart';
 import 'domain/usecases/get_current_uid_usecase.dart';
 import 'domain/usecases/get_current_user_usecase.dart';
+import 'domain/usecases/is_bracelet_id_valid_usecase.dart';
 import 'domain/usecases/is_email_verified_usecase.dart';
 import 'domain/usecases/is_sign_in_usecase.dart';
+import 'domain/usecases/register_bracelet_usecase.dart';
+import 'domain/usecases/resend_email_verification_usecase.dart';
+import 'domain/usecases/resend_phone_verification_usecase.dart';
+import 'domain/usecases/sign_in_with_email_usecase.dart';
 import 'domain/usecases/sign_in_with_phone_number_usecase.dart';
 import 'domain/usecases/sign_out_usecase.dart';
 import 'domain/usecases/sign_up_with_email_usecase.dart';
 import 'domain/usecases/sign_up_with_sms_verification_usecase.dart';
 import 'domain/usecases/verify_phone_number_usecase.dart';
 import 'presentation/bloc/auth/auth_cubit.dart';
+import 'presentation/bloc/connect_bracelet/connect_bracelet_cubit.dart';
 import 'presentation/bloc/email_auth/email_auth_cubit.dart';
 import 'presentation/bloc/phone_auth/phone_auth_cubit.dart';
+import 'presentation/bloc/user/user_cubit.dart';
 
 final sl = GetIt.instance;
 

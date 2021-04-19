@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:ixir_app/presentation/utils/error_message_provider.dart';
+
 import '../../../domain/entities/user_entity.dart';
 import '../../../domain/usecases/get_current_user_usecase.dart';
+import '../../utils/error_message_provider.dart';
 
 part 'user_state.dart';
 

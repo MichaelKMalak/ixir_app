@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/presentation/bloc/email_auth/email_auth_cubit.dart';
-import 'package:ixir_app/presentation/navigation/route_paths.dart';
-import 'package:ixir_app/presentation/utils/string_utils.dart';
-import 'package:ixir_app/presentation/widgets/buttons/custom_button_widget.dart';
-import 'package:ixir_app/presentation/widgets/progress_widget.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_colors.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_dimensions.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_styles.dart';
+
+import '../../bloc/email_auth/email_auth_cubit.dart';
+import '../../navigation/route_paths.dart';
+import '../../utils/string_utils.dart';
+import '../../widgets/buttons/custom_button_widget.dart';
+import '../../widgets/progress_widget.dart';
+import '../../widgets/theme/app_colors.dart';
+import '../../widgets/theme/app_dimensions.dart';
+import '../../widgets/theme/app_styles.dart';
 
 class SignInByEmailWidget extends StatefulWidget {
   @override

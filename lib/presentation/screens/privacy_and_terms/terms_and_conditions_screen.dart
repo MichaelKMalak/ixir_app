@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ixir_app/presentation/navigation/route_paths.dart';
-import 'package:ixir_app/presentation/widgets/buttons/custom_button_widget.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_colors.dart';
-import 'package:ixir_app/presentation/widgets/theme/app_styles.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
 
+import '../../navigation/route_paths.dart';
+import '../../widgets/buttons/custom_button_widget.dart';
+import '../../widgets/theme/app_colors.dart';
 import '../../widgets/theme/app_dimensions.dart';
+import '../../widgets/theme/app_styles.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
   @override

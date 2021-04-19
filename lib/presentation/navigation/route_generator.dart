@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ixir_app/presentation/screens/connect_bracelet/choose_bracelet_user_screen.dart';
-import 'package:ixir_app/presentation/screens/connect_bracelet/connect_other_person_bracelet_screen.dart';
-import 'package:ixir_app/presentation/screens/connect_bracelet/connect_own_bracelet_screen.dart';
-import 'package:ixir_app/presentation/screens/connect_bracelet/enter_bracelet_serial_screen.dart';
-import 'package:ixir_app/presentation/screens/home_screen.dart';
 
 import '../../domain/entities/user_entity.dart';
 import '../navigation/route_paths.dart';
-import '../screens/splash_screen.dart';
+import '../screens/connect_bracelet/choose_bracelet_user_screen.dart';
+import '../screens/connect_bracelet/connect_other_person_bracelet_screen.dart';
+import '../screens/connect_bracelet/connect_own_bracelet_screen.dart';
+import '../screens/connect_bracelet/enter_bracelet_serial_screen.dart';
+import '../screens/home_screen.dart';
 import '../screens/landing/welcome_screen.dart';
 import '../screens/privacy_and_terms/privacy_policy_screen.dart';
 import '../screens/privacy_and_terms/terms_and_conditions_screen.dart';
@@ -17,6 +16,7 @@ import '../screens/sign_up/with_email/sign_up_with_email_confirmation_screen.dar
 import '../screens/sign_up/with_email/sign_up_with_email_screen.dart';
 import '../screens/sign_up/with_phone/sign_up_with_phone_confirmation_screen.dart';
 import '../screens/sign_up/with_phone/sign_up_with_phone_screen.dart';
+import '../screens/splash_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
