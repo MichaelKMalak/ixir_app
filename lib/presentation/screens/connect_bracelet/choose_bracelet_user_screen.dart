@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../common.dart';
 import '../../navigation/route_paths.dart';
 import '../../widgets/buttons/custom_button_widget.dart';
 import '../../widgets/image_paths.dart';
@@ -16,6 +17,7 @@ class ChooseBraceletUserScreen extends StatelessWidget {
   const ChooseBraceletUserScreen({Key key, @required this.braceletId})
       : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.greenColor,
@@ -30,9 +32,13 @@ class ChooseBraceletUserScreen extends StatelessWidget {
                 textColor: AppColors.whiteColor,
                 backgroundColor: AppColors.greenColor,
               ),
-              Text('Connect to a bracelet', style: AppStyles.header1WhiteText),
+              Text(AppLocalizations.of(context).connectToABracelet,
+                  style: AppStyles.header1WhiteText),
               const SizedBox(height: 26),
-              Text('One more thing about you before connecting to a bracelet.', style: AppStyles.regularWhiteText),
+              Text(
+                  AppLocalizations.of(context)
+                      .oneMoreThingAboutYouBeforeConnectingToABracelet,
+                  style: AppStyles.regularWhiteText),
               const SizedBox(height: 26),
               SvgPicture.asset(ImagePaths.braceletSvg),
               Expanded(
@@ -40,7 +46,8 @@ class ChooseBraceletUserScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CustomButton(
-                      buttonLabel: "I'll be using the bracelet",
+                      buttonLabel:
+                          AppLocalizations.of(context).illBeUsingTheBracelet,
                       onClick: () => Navigator.pushNamed(
                           context, RoutePaths.connectOwnBraceletScreen,
                           arguments: braceletId),
@@ -49,7 +56,8 @@ class ChooseBraceletUserScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 26),
                     CustomButton(
-                      buttonLabel: 'Someone else will use the bracelet',
+                      buttonLabel: AppLocalizations.of(context)
+                          .someoneElseWillUseTheBracelet,
                       onClick: () => Navigator.pushNamed(
                           context, RoutePaths.connectOtherPersonBraceletScreen,
                           arguments: braceletId),

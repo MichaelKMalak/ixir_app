@@ -234,10 +234,12 @@ class __TopWidgetState extends State<_TopWidget> {
                             hintText: 'Enter Emergency Contact Number'),
                         validator: (value) {
                           if (StringUtils.isEmpty(value)) {
-                            return 'Please enter emergency contact Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterEmergencyContactNumber;
                           }
                           if (!StringUtils.isPhoneNumber(value)) {
-                            return 'Please enter a valid Phone Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterAValidPhoneNumber;
                           }
                           return null;
                         },
@@ -256,7 +258,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Register New Bracelet',
+                  buttonLabel: AppLocalization.of(context).registerNewBracelet,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
@@ -295,12 +297,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Almost there!',
+            AppLocalizations.of(context).almostThere,
             style: AppStyles.header1WhiteText,
           ),
           const SizedBox(height: 26),
           Text(
-            'Once you finish this form, your account will be set and you will be able to connect your bracelet.',
+            AppLocalizations.of(context)
+                .onceYouFinishThisFormYourAccountWillBeSetAndYouWillBeAbleToConnectYourBracelet,
             style: AppStyles.regularWhiteText,
           ),
           const SizedBox(height: 35),

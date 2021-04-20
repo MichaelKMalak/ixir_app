@@ -1,4 +1,7 @@
 {
   "@@locale" : "de",
-  "helloWorld": "Hello Flutter Engage!"
+  "connectToABracelet": "Connect to a bracelet",
+  "oneMoreThingAboutYouBeforeConnectingToABracelet": "One more thing about you before connecting to a bracelet.",
+  "illBeUsingTheBracelet": "I'll be using the bracelet",
+  "someoneElseWillUseTheBracelet": "Someone else will use the bracelet"
 }

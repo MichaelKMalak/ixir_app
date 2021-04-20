@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app_const.dart';
+import '../../../common.dart';
 import '../../../domain/entities/bracelet_entity.dart';
 import '../../bloc/connect_bracelet/connect_bracelet_cubit.dart';
 import '../../navigation/route_paths.dart';
@@ -53,12 +54,12 @@ class __TopWidgetState extends State<_TopWidget> {
   DateTime holderDateOfBirth = DateTime(1970);
   String _countryCode = AppConst.defaultCountryCode.first;
 
-  var _currencies = [
-    "option-1",
-    "option-2",
-    "option-3",
-    "option-4",
-    "option-5",
+  final _options = [
+    'option-1',
+    'option-2',
+    'option-3',
+    'option-4',
+    'option-5',
   ];
 
   @override
@@ -91,20 +92,22 @@ class __TopWidgetState extends State<_TopWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Bracelet Holder First Name',
+                AppLocalizations.of(context).braceletHolderFirstName,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.text,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Bracelet Holder first name'),
+                    hintText: AppLocalizations.of(context)
+                        .enterBraceletHolderFirstName),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter bracelet holder first name';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterBraceletHolderFirstName;
                   } else if (value.length < 2 ||
                       StringUtils.hasNonAlphabet(value)) {
-                    return 'Please enter a valid name';
+                    return AppLocalizations.of(context).pleaseEnterAValidName;
                   }
                   return null;
                 },
@@ -116,20 +119,22 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Bracelet Holder Last Name',
+                AppLocalizations.of(context).braceletHolderLastName,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.text,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Bracelet Holder last name'),
+                    hintText: AppLocalizations.of(context)
+                        .enterBraceletHolderLastName),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter bracelet holder last name';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterBraceletHolderLastName;
                   } else if (value.length < 2 ||
                       StringUtils.hasNonAlphabet(value)) {
-                    return 'Please enter a valid name';
+                    return AppLocalizations.of(context).pleaseEnterAValidName;
                   }
                   return null;
                 },
@@ -141,19 +146,21 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Date of Birth',
+                AppLocalizations.of(context).dateOfBirth,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               DateTimeFormField(
                 initialValue: holderDateOfBirth,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Date of Birth'),
+                    hintText:
+                        AppLocalizations.of(context).enterYourDateOfBirth),
                 mode: DateTimeFieldPickerMode.date,
-                validator: (e) =>
-                    (e?.year == null || e?.year > 2010 || e?.year < 1900)
-                        ? 'Please enter a valid date of birth'
-                        : null,
+                validator: (e) => (e?.year == null ||
+                        e?.year > 2010 ||
+                        e?.year < 1900)
+                    ? AppLocalizations.of(context).pleaseEnterAValidDateOfBirth
+                    : null,
                 autovalidateMode: AutovalidateMode.always,
                 onSaved: (value) {
                   setState(() {
@@ -163,22 +170,24 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Bracelet Holder Height (m)',
+                AppLocalizations.of(context).braceletHolderHeightM,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Bracelet Holder Height'),
+                    hintText:
+                        AppLocalizations.of(context).enterBraceletHolderHeight),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter bracelet holder height';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterBraceletHolderHeight;
                   } else if (!StringUtils.isNumeric(value)) {
-                    return 'Please enter numbers only';
+                    return AppLocalizations.of(context).pleaseEnterNumbersOnly;
                   } else if (double.parse(value) > 300 ||
                       double.parse(value) < 30) {
-                    return 'Please enter a valid number';
+                    return AppLocalizations.of(context).pleaseEnterAValidNumber;
                   }
                   return null;
                 },
@@ -190,22 +199,23 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Bracelet Holder Weight (Kg)',
+                AppLocalizations.of(context).braceletHolderWeightKg,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Bracelet Weight'),
+                    hintText: AppLocalizations.of(context).enterBraceletWeight),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter bracelet holder weight';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterBraceletHolderWeight;
                   } else if (!StringUtils.isNumeric(value)) {
-                    return 'Please enter numbers only';
+                    return AppLocalizations.of(context).pleaseEnterNumbersOnly;
                   } else if (double.parse(value) > 400 ||
                       double.parse(value) < 30) {
-                    return 'Please enter a valid number';
+                    return AppLocalizations.of(context).pleaseEnterAValidNumber;
                   }
                   return null;
                 },
@@ -217,7 +227,8 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                "Bracelet Holder's Cardiovascular Disease History",
+                AppLocalizations.of(context)
+                    .braceletHoldersCardiovascularDiseaseHistory,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -225,7 +236,8 @@ class __TopWidgetState extends State<_TopWidget> {
                 builder: (FormFieldState<String> state) {
                   return InputDecorator(
                     decoration: AppStyles.getTextFieldInputStyle(
-                        hintText: 'Please Choose an Option'),
+                        hintText:
+                            AppLocalizations.of(context).pleaseChooseAnOption),
                     isEmpty: holderCardiovascularHistory == '',
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
@@ -238,7 +250,7 @@ class __TopWidgetState extends State<_TopWidget> {
                             state.didChange(newValue);
                           });
                         },
-                        items: _currencies.map((String value) {
+                        items: _options.map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -251,7 +263,8 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                "Bracelet Holder's Blood Pressure Condition History",
+                AppLocalizations.of(context)
+                    .braceletHoldersBloodPressureConditionHistory,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -259,7 +272,8 @@ class __TopWidgetState extends State<_TopWidget> {
                 builder: (FormFieldState<String> state) {
                   return InputDecorator(
                     decoration: AppStyles.getTextFieldInputStyle(
-                        hintText: 'Please Choose an Option'),
+                        hintText:
+                            AppLocalizations.of(context).pleaseChooseAnOption),
                     isEmpty: holderBloodPressureHistory == '',
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
@@ -272,7 +286,7 @@ class __TopWidgetState extends State<_TopWidget> {
                             state.didChange(newValue);
                           });
                         },
-                        items: _currencies.map((String value) {
+                        items: _options.map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -285,7 +299,7 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Emergency Contact',
+                emergencyContact,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -307,13 +321,16 @@ class __TopWidgetState extends State<_TopWidget> {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: AppStyles.getTextFieldInputStyle(
-                            hintText: 'Enter Emergency Contact Number'),
+                            hintText: AppLocalizations.of(context)
+                                .enterEmergencyContactNumber),
                         validator: (value) {
                           if (StringUtils.isEmpty(value)) {
-                            return 'Please enter emergency contact Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterEmergencyContactNumber;
                           }
                           if (!StringUtils.isPhoneNumber(value)) {
-                            return 'Please enter a valid Phone Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterAValidPhoneNumber;
                           }
                           return null;
                         },
@@ -332,7 +349,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Register New Bracelet',
+                  buttonLabel: AppLocalization.of(context).registerNewBracelet,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
@@ -373,12 +390,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Almost there!',
+            AppLocalizations.of(context).almostThere,
             style: AppStyles.header1WhiteText,
           ),
           const SizedBox(height: 26),
           Text(
-            'Once you finish this form, your account will be set and you will be able to connect your bracelet.',
+            AppLocalizations.of(context)
+                .onceYouFinishThisFormYourAccountWillBeSetAndYouWillBeAbleToConnectYourBracelet,
             style: AppStyles.regularWhiteText,
           ),
           const SizedBox(height: 35),
