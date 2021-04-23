@@ -29,24 +29,24 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
         listener: (context, emailAuthState) {
-          if (emailAuthState is EmailAuthFailure) {
-            setState(() {
-              isLoading = false;
-            });
-          }
-          if (emailAuthState is EmailAuthLoading) {
-            setState(() {
-              isLoading = true;
-            });
-          }
-          if (emailAuthState is EmailAuthSuccess) {
-            setState(() {
-              isLoading = false;
-            });
-            Navigator.pushNamedAndRemoveUntil(
-                context, RoutePaths.splashScreen, (Route<dynamic> route) => false);
-          }
-        }, builder: (context, emailAuthState) {
+      if (emailAuthState is EmailAuthFailure) {
+        setState(() {
+          isLoading = false;
+        });
+      }
+      if (emailAuthState is EmailAuthLoading) {
+        setState(() {
+          isLoading = true;
+        });
+      }
+      if (emailAuthState is EmailAuthSuccess) {
+        setState(() {
+          isLoading = false;
+        });
+        Navigator.pushNamedAndRemoveUntil(
+            context, RoutePaths.splashScreen, (Route<dynamic> route) => false);
+      }
+    }, builder: (context, emailAuthState) {
       return Form(
         key: formKey,
         child: Padding(
@@ -129,8 +129,8 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
                       await BlocProvider.of<EmailAuthCubit>(context)
-                          .signInWithEmail(
-                          email: phoneNumber, password: password);
+                          .signInWithPhoneNumber(
+                              phone: phoneNumber, password: password);
                     }
                   },
                   buttonColorBt: AppColors.blueColor,

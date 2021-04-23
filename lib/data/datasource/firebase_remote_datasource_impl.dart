@@ -86,38 +86,23 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
     return currentUser?.phoneNumber != null ||
         (auth.currentUser?.phoneNumber == null &&
             auth.currentUser?.emailVerified != null &&
-            auth.currentUser?.emailVerified);
+            auth.currentUser.emailVerified);
   }
 
   @override
-  Future<bool> signUpVerifySms(String smsCode, UserEntity user) async {
-    final credential = PhoneAuthProvider.credential(
-        verificationId: _verificationId, smsCode: smsCode);
-    final phoneCredentials = await auth.signInWithCredential(credential);
-    final isSuccess = phoneCredentials.user.uid != null;
-    if (isSuccess) {
-      await verifySms(smsCode, user, phoneCredentials);
-    } else {
-      throw Exception('The verification code is not valid');
-    }
-    return isSuccess;
-  }
-
-  Future<void> verifySms(String smsCode, UserEntity userWithoutEmail,
-      UserCredential phoneCredentials) async {
+  Future<bool> signUpVerifySms(
+      String smsCode, UserEntity userWithoutEmail) async {
     try {
+      final phoneCredentials = PhoneAuthProvider.credential(
+          verificationId: _verificationId, smsCode: smsCode);
       final user = UserModel.fromEntity(userWithoutEmail).copyWith(
-          email: 'phone${userWithoutEmail.phoneNumber}@phone-ixir.com');
+        email: 'phone${userWithoutEmail.phoneNumber}@phone-ixir.com',
+        password: userWithoutEmail.password,
+      );
       final emailCredentials = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: user.email, password: user.password);
-      final token = await auth.currentUser.getIdToken();
-
-      //emailCredentials.user.linkWithCredential();
-//      auth.currentUser.linkWithCredential(emailCredentials.credential);
-
-      // await phoneCredentials.user
-      //     .linkWithCredential(emailCredentials.credential);
+      await emailCredentials.user.linkWithCredential(phoneCredentials);
       addUser(user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -125,20 +110,15 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
       } else if (e.code == 'email-already-in-use') {
         throw Exception('The account already exists for that email.');
       }
+      throw Exception('An Error has occurred. Try again later.');
     }
+    return true;
   }
 
   @override
   Future<void> signInWithPhoneNumber(String phone, String password) async {
     await signInWithEmail('phone$phone@phone-ixir.com', password);
   }
-
-  // Future<void> signInWithPhoneNumber(String smsPinCode) async {
-  //   final AuthCredential authCredential = PhoneAuthProvider.credential(
-  //       verificationId: _verificationId, smsCode: smsPinCode);
-  //
-  //   await auth.signInWithCredential(authCredential);
-  // }
 
   @override
   Future<void> signOut() async {
@@ -206,10 +186,8 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        throw Exception('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        throw Exception('Wrong password provided for that user.');
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        throw Exception('Invalid User Credentials');
       }
     }
   }

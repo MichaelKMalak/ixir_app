@@ -53,18 +53,17 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
     emit(PhoneAuthLoading());
     try {
       await signUpWithSmsVerificationUseCase.call(userEntity, smsCode);
+      final isSuccess = isSignInUseCase.call();
+      if (isSuccess) {
+        emit(PhoneAuthSuccess());
+      } else {
+        emit(PhoneAuthFailure());
+      }
     } on SocketException catch (e) {
       ErrorMessageProvider.show(e);
       emit(PhoneAuthFailure());
     } catch (e) {
       ErrorMessageProvider.show(e);
-      emit(PhoneAuthFailure());
-    }
-
-    final isSuccess = isSignInUseCase.call();
-    if (isSuccess) {
-      emit(PhoneAuthSuccess());
-    } else {
       emit(PhoneAuthFailure());
     }
   }
