@@ -47,6 +47,7 @@ dependencies:
   email_validator: ^1.0.6
   enum_to_string: ^1.0.14
   fluttertoast: ^7.1.8
+  logging: ^1.0.1
 
   # Others
   flutter_svg: ^0.19.3

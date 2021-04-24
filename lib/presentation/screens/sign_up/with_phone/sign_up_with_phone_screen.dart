@@ -237,8 +237,8 @@ class __TopWidgetState extends State<_TopWidget> {
                         AppLocalizations.of(context).enterYourDateOfBirth),
                 mode: DateTimeFieldPickerMode.date,
                 validator: (e) => (e?.year == null ||
-                        e?.year > 2010 ||
-                        e?.year < 1900)
+                        e.year > 2010 ||
+                        e.year < 1900)
                     ? AppLocalizations.of(context).pleaseEnterAValidDateOfBirth
                     : null,
                 autovalidateMode: AutovalidateMode.always,

@@ -12,7 +12,7 @@ class AuthInitial extends AuthState {
 class Authenticated extends AuthState {
   final String uid;
 
-  Authenticated({this.uid});
+  const Authenticated({this.uid});
   @override
   List<Object> get props => [];
 }
@@ -21,7 +21,7 @@ class Authenticated extends AuthState {
 class AuthenticatedEmailNotVerified extends AuthState {
   final String uid;
 
-  AuthenticatedEmailNotVerified({this.uid});
+  const AuthenticatedEmailNotVerified({this.uid});
   @override
   List<Object> get props => [];
 }

@@ -68,8 +68,8 @@ class __HomeState extends State<_Home> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('HOME PAGE PLACEHOLDER'),
-                    SizedBox(height: 20),
+                    const Text('HOME PAGE PLACEHOLDER'),
+                    const SizedBox(height: 20),
                     CustomButton(
                       buttonLabel: AppLocalizations.of(context).logout,
                       onClick: () async {

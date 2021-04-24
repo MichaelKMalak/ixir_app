@@ -10,7 +10,7 @@ class CustomTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      decoration: BoxDecoration(color: primaryColor),
+      decoration: const BoxDecoration(color: primaryColor),
       child: Row(
         children: <Widget>[
           const SizedBox(
@@ -22,21 +22,21 @@ class CustomTabBar extends StatelessWidget {
           ),
           Expanded(
             child: CustomTabBarButton(
-              text: "CHATS",
+              text: 'CHATS',
               textColor: index == 1 ? textIconColor : textIconColorGray,
               borderColor: index == 1 ? textIconColor : Colors.transparent,
             ),
           ),
           Expanded(
             child: CustomTabBarButton(
-              text: "STATUS",
+              text: 'STATUS',
               textColor: index == 2 ? textIconColor : textIconColorGray,
               borderColor: index == 2 ? textIconColor : Colors.transparent,
             ),
           ),
           Expanded(
             child: CustomTabBarButton(
-              text: "CALLS",
+              text: 'CALLS',
               textColor: index == 3 ? textIconColor : textIconColorGray,
               borderColor: index == 3 ? textIconColor : Colors.transparent,
             ),

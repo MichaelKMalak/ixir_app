@@ -42,6 +42,7 @@ Future<void> init() async {
         verifyPhoneNumberUseCase: sl.call(),
         signUpWithSmsVerificationUseCase: sl.call(),
         isSignInUseCase: sl.call(),
+        resendPhoneVerificationUseCase: sl.call(),
       ));
   sl.registerFactory<EmailAuthCubit>(() => EmailAuthCubit(
         signUpWithEmailUseCase: sl.call(),

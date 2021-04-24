@@ -50,12 +50,12 @@ class __TopWidgetState extends State<_TopWidget> {
   String holderBloodPressureHistory = 'option-3';
   String _countryCode = AppConst.defaultCountryCode.first;
 
-  var _currencies = [
-    "option-1",
-    "option-2",
-    "option-3",
-    "option-4",
-    "option-5",
+  final _currencies = [
+    'option-1',
+    'option-2',
+    'option-3',
+    'option-4',
+    'option-5',
   ];
 
   @override

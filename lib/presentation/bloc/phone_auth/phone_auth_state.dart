@@ -19,7 +19,7 @@ class PhoneAuthSmsCodeReceived extends PhoneAuthState {
   List<Object> get props => [];
   @override
   String toString() {
-    print("auth sms received");
+    LoggerProvider.logFine('PhoneAuthSmsCodeReceived', 'Auth SMS Received');
     return super.toString();
   }
 }

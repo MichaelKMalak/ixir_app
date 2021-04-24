@@ -15,7 +15,6 @@ import 'presentation/bloc/user/user_cubit.dart';
 import 'presentation/navigation/route_generator.dart';
 import 'presentation/navigation/route_paths.dart';
 import 'presentation/widgets/theme/app_themes.dart';
-import 'common.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

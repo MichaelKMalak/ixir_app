@@ -194,7 +194,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
 
   @override
   Future<void> sendEmailVerification() async {
-    User user = auth?.currentUser;
+    final user = auth?.currentUser;
 
     if (!user.emailVerified) {
       await user.sendEmailVerification();

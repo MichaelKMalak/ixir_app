@@ -54,7 +54,7 @@ class RouteGenerator {
         return _navigate(SignUpWithEmailConfirmationScreen());
 
       case RoutePaths.homeScreen:
-        return _navigate(HomeScreen());
+        return _navigate(const HomeScreen());
 
       case RoutePaths.enterBraceletSerialScreen:
         return _navigate(EnterBraceletSerialScreen());
@@ -83,7 +83,7 @@ class RouteGenerator {
     return MaterialPageRoute<dynamic>(builder: (context) => widget);
   }
 
-  static PageRouteBuilder<dynamic> _navigateWithoutAnimation(Widget widget) {
-    return PageRouteBuilder<dynamic>(pageBuilder: (_, __, ___) => widget);
-  }
+  // static PageRouteBuilder<dynamic> _navigateWithoutAnimation(Widget widget) {
+  //   return PageRouteBuilder<dynamic>(pageBuilder: (_, __, ___) => widget);
+  // }
 }

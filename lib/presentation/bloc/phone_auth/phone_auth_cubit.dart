@@ -11,6 +11,7 @@ import '../../../domain/usecases/sign_in_with_phone_number_usecase.dart';
 import '../../../domain/usecases/sign_up_with_sms_verification_usecase.dart';
 import '../../../domain/usecases/verify_phone_number_usecase.dart';
 import '../../utils/error_message_provider.dart';
+import '../../utils/logger_provider.dart';
 
 part 'phone_auth_state.dart';
 
