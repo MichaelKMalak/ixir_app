@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app_const.dart';
+import '../../../common.dart';
 import '../../../domain/entities/bracelet_entity.dart';
 import '../../bloc/connect_bracelet/connect_bracelet_cubit.dart';
 import '../../navigation/route_paths.dart';
@@ -87,22 +88,22 @@ class __TopWidgetState extends State<_TopWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Your Height (m)',
+                AppLocalizations.of(context).yourHeightM,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Your Height'),
+                    hintText: AppLocalizations.of(context).enterYourHeight),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your height';
+                    return AppLocalizations.of(context).pleaseEnterYourHeight;
                   } else if (!StringUtils.isNumeric(value)) {
-                    return 'Please enter numbers only';
+                    return AppLocalizations.of(context).pleaseEnterNumbersOnly;
                   } else if (double.parse(value) > 300 ||
                       double.parse(value) < 30) {
-                    return 'Please enter a valid number';
+                    return AppLocalizations.of(context).pleaseEnterAValidNumber;
                   }
                   return null;
                 },
@@ -114,22 +115,22 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Your Weight (Kg)',
+                AppLocalizations.of(context).yourWeightKg,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Weight'),
+                    hintText: AppLocalizations.of(context).enterYourWeight),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your weight';
+                    return  AppLocalizations.of(context).pleaseEnterYourWeight;
                   } else if (!StringUtils.isNumeric(value)) {
-                    return 'Please enter numbers only';
+                    return AppLocalizations.of(context).pleaseEnterNumbersOnly;
                   } else if (double.parse(value) > 400 ||
                       double.parse(value) < 30) {
-                    return 'Please enter a valid number';
+                    return AppLocalizations.of(context).pleaseEnterAValidNumber;
                   }
                   return null;
                 },
@@ -141,7 +142,7 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                "Your Cardiovascular Disease History",
+                AppLocalizations.of(context).yourCardiovascularDiseaseHistory,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -149,7 +150,8 @@ class __TopWidgetState extends State<_TopWidget> {
                 builder: (FormFieldState<String> state) {
                   return InputDecorator(
                     decoration: AppStyles.getTextFieldInputStyle(
-                        hintText: 'Please Choose an Option'),
+                        hintText:
+                            AppLocalizations.of(context).pleaseChooseAnOption),
                     isEmpty: holderCardiovascularHistory == '',
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
@@ -175,7 +177,7 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                "Your Blood Pressure Condition History",
+                AppLocalizations.of(context).yourBloodPressureConditionHistory,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -183,7 +185,8 @@ class __TopWidgetState extends State<_TopWidget> {
                 builder: (FormFieldState<String> state) {
                   return InputDecorator(
                     decoration: AppStyles.getTextFieldInputStyle(
-                        hintText: 'Please Choose an Option'),
+                        hintText:
+                            AppLocalizations.of(context).pleaseChooseAnOption),
                     isEmpty: holderBloodPressureHistory == '',
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
@@ -209,7 +212,7 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Your Emergency Contact',
+                AppLocalizations.of(context).yourEmergencyContact,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -258,7 +261,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: AppLocalization.of(context).registerNewBracelet,
+                  buttonLabel: AppLocalizations.of(context).registerNewBracelet,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();

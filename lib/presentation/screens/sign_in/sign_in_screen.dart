@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../common.dart';
 import '../../widgets/panel_over_scaffold.dart';
 import '../../widgets/theme/app_colors.dart';
 import '../../widgets/theme/app_dimensions.dart';
 import '../../widgets/theme/app_styles.dart';
 import 'sign_in_by_email_widget.dart';
 import 'sign_in_by_phone_widget.dart';
-
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -43,13 +43,13 @@ class __TopWidgetState extends State<_TopWidget> {
             tabs: [
               Tab(
                 child: Text(
-                  'Sign in with Email',
+                  AppLocalizations.of(context).signInWithEmail,
                   style: textTheme.bodyText1,
                 ),
               ),
               Tab(
                 child: Text(
-                  'Sign in with Phone',
+                  AppLocalizations.of(context).signInWithPhone,
                   style: textTheme.bodyText1,
                 ),
               ),
@@ -79,12 +79,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Welcome back!',
+            AppLocalizations.of(context).welcomeBack,
             style: AppStyles.header1WhiteText,
           ),
           const SizedBox(height: 26),
           Text(
-            'Once you login in, you will be tuned with all the graphs and data to make sure your senior is safe and healthy.',
+            AppLocalizations.of(context)
+                .onceYouLoginInYouWillBeTunedWithAllTheGraphsAndDataToMakeSureYourSeniorIsSafeAndHealthy,
             style: AppStyles.regularWhiteText,
           ),
           const SizedBox(height: 100),

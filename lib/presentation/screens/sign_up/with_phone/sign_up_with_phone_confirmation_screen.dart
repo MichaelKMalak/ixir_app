@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../common.dart';
 import '../../../../domain/entities/user_entity.dart';
 import '../../../bloc/phone_auth/phone_auth_cubit.dart';
 import '../../../navigation/route_paths.dart';
@@ -71,17 +72,19 @@ class __TopWidgetState extends State<_TopWidget> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(
-                'Verification Code',
+                AppLocalizations.of(context).verificationCode,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter Verification Code'),
+                    hintText:
+                        AppLocalizations.of(context).enterVerificationCode),
                 validator: (value) {
                   if (value.isEmpty || value.length != 6) {
-                    return 'Please enter a valid verification code.';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidVerificationCode;
                   }
                   return null;
                 },
@@ -92,7 +95,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Confirm',
+                  buttonLabel: AppLocalizations.of(context).confirm,
                   onClick: () {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
@@ -112,7 +115,7 @@ class __TopWidgetState extends State<_TopWidget> {
                         .resendPhoneVerificationUseCase(
                             widget.newUser.phoneNumber),
                     child: Text(
-                      'Resend Verification SMS',
+                      AppLocalizations.of(context).resendVerificationSms,
                       style: AppStyles.regularPrimaryText.copyWith(
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline),
@@ -135,12 +138,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'We sent you a verification SMS',
+            AppLocalizations.of(context).weSentYouAVerificationSms,
             style: AppStyles.header1Primary,
           ),
           const SizedBox(height: 26),
           Text(
-            'We send you a message to your phone with a verification code. If you didn’t get it, it’s okay, you can always resend it.',
+            AppLocalizations.of(context)
+                .weSendYouAMessageToYourPhoneWithAVerificationCodeIfYouDidntGetItItsOkayYouCanAlwaysResendIt,
             style: AppStyles.regularPrimaryText,
           ),
           const SizedBox(height: 150),

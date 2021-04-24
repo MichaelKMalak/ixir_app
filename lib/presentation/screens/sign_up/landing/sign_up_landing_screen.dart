@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../common.dart';
 import '../../../navigation/route_paths.dart';
 import '../../../widgets/buttons/custom_button_widget.dart';
 import '../../../widgets/image_paths.dart';
@@ -28,10 +29,12 @@ class SignUpLandingScreen extends StatelessWidget {
                   textColor: AppColors.whiteColor,
                   backgroundColor: AppColors.greenColor,
                 ),
-                Text('Welcome!', style: AppStyles.header1WhiteText),
+                Text(AppLocalizations.of(context).welcome,
+                    style: AppStyles.header1WhiteText),
                 const SizedBox(height: 26),
                 Text(
-                    'Before you get going, you need to choose your preferred method of logging in the future. ',
+                    AppLocalizations.of(context)
+                        .beforeYouGetGoingYouNeedToChooseYourPreferredMethodOfLoggingInTheFuture,
                     style: AppStyles.regularWhiteText),
                 const SizedBox(height: 30),
                 SvgPicture.asset(ImagePaths.braceletSvg),
@@ -40,7 +43,8 @@ class SignUpLandingScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomButton(
-                        buttonLabel: 'Sign up with Email Address',
+                        buttonLabel:
+                            AppLocalizations.of(context).signUpWithEmailAddress,
                         onClick: () => Navigator.pushNamed(
                             context, RoutePaths.signUpEmailScreen),
                         buttonColorBt: AppColors.whiteColor,
@@ -48,7 +52,8 @@ class SignUpLandingScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 26),
                       CustomButton(
-                        buttonLabel: 'Sign up with Mobile Number',
+                        buttonLabel:
+                            AppLocalizations.of(context).signUpWithMobileNumber,
                         onClick: () => Navigator.pushNamed(
                             context, RoutePaths.signUpPhoneScreen),
                         buttonColorBt: AppColors.whiteColor,

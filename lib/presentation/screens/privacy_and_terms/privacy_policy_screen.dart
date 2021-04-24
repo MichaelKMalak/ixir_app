@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
 
+import '../../../common.dart';
 import '../../navigation/route_paths.dart';
 import '../../widgets/buttons/custom_button_widget.dart';
 import '../../widgets/theme/app_colors.dart';
@@ -13,7 +14,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Privacy Policy',
+          AppLocalizations.of(context).privacyPolicy,
           style: AppStyles.header1Primary.copyWith(color: AppColors.blackColor),
         ),
         brightness: Brightness.light,
@@ -28,7 +29,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           CustomButton(
-            buttonLabel: 'I have read and I agree',
+            buttonLabel: AppLocalizations.of(context).iHaveReadAndIAgree,
             buttonColorBt: AppColors.blueColor,
             labelColorBt: AppColors.whiteColor,
             onClick: () => Navigator.pushNamed(

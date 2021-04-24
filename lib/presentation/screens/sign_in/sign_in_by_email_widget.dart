@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common.dart';
 import '../../bloc/email_auth/email_auth_cubit.dart';
 import '../../navigation/route_paths.dart';
 import '../../utils/string_utils.dart';
@@ -51,19 +52,22 @@ class SignInByEmailWidgetState extends State<SignInByEmailWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Email Address',
+                AppLocalizations.of(context).emailAddress,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Email Address'),
+                    hintText:
+                        AppLocalizations.of(context).enterYourEmailAddress),
                 validator: (value) {
                   if (StringUtils.isEmpty(value)) {
-                    return 'Please enter your Email Address';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterYourEmailAddress;
                   }
                   if (!StringUtils.isEmail(value)) {
-                    return 'Please enter a valid Email Address';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidEmailAddress;
                   }
                   return null;
                 },
@@ -75,19 +79,20 @@ class SignInByEmailWidgetState extends State<SignInByEmailWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Password',
+                password,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Password'),
+                    hintText: AppLocalizations.of(context).enterYourPassword),
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your Password';
+                    return AppLocalizations.of(context).pleaseEnterYourPassword;
                   } else if (value.length < 8) {
-                    return 'Please enter a Password with at least 8 characters';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAPasswordWithAtLeast8Characters;
                   }
                   setState(() {
                     password = value;
@@ -100,7 +105,7 @@ class SignInByEmailWidgetState extends State<SignInByEmailWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Sign in',
+                  buttonLabel: AppLocalizations.of(context).signIn,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();

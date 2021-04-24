@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common.dart';
 import '../../bloc/connect_bracelet/connect_bracelet_cubit.dart';
 import '../../navigation/route_paths.dart';
 import '../../widgets/buttons/custom_button_widget.dart';
@@ -62,19 +63,22 @@ class __TopWidgetState extends State<_TopWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Bracelet Serial Number',
+                AppLocalizations.of(context).braceletSerialNumber,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.text,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Bracelet Serial Number'),
+                    hintText: AppLocalizations.of(context)
+                        .enterYourBraceletSerialNumber),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your Bracelet Serial Number';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterYourBraceletSerialNumber;
                   } else if (value.length < 4) {
-                    return 'Please enter a valid serial number';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidSerialNumber;
                   }
 
                   return null;
@@ -90,7 +94,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Submit',
+                  buttonLabel: AppLocalizations.of(context).submit,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
@@ -103,9 +107,9 @@ class __TopWidgetState extends State<_TopWidget> {
                 ),
               const SizedBox(height: 26),
               CustomButton(
-                buttonLabel: "Can't find the serial number?",
+                buttonLabel:
+                    AppLocalizations.of(context).cantFindTheSerialNumber,
                 onClick: () {},
-                buttonColorBt: Colors.transparent,
                 labelColorBt: AppColors.blueColor,
                 borderColorBt: AppColors.blueColor,
               ),
@@ -127,12 +131,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Connect to a bracelet',
+            AppLocalizations.of(context).connectToABracelet,
             style: AppStyles.header1WhiteText,
           ),
           const SizedBox(height: 26),
           Text(
-            'You will find a serial number printed on Ixir Health Monitoring Bracelet. To connect it with your account, please enter this serial number below.',
+            AppLocalizations.of(context)
+                .youWillFindASerialNumberPrintedOnIxirHealthMonitoringBraceletToConnectItWithYourAccountPleaseEnterThisSerialNumberBelow,
             style: AppStyles.regularWhiteText,
           ),
           const SizedBox(height: 100),

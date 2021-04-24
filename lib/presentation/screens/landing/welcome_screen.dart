@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../common.dart';
 import '../../navigation/route_paths.dart';
 import '../../widgets/buttons/custom_button_widget.dart';
 import '../../widgets/image_paths.dart';
@@ -43,7 +44,8 @@ class _Foreground extends StatelessWidget {
             forceHideBackButton: true,
           ),
           Text(
-            'Experience the Highest Quality Care for Seniors',
+            AppLocalizations.of(context)
+                .experienceTheHighestQualityCareForSeniors,
             style: AppStyles.header1Primary,
           ),
           Column(
@@ -53,7 +55,8 @@ class _Foreground extends StatelessWidget {
               Padding(
                 padding: AppDimensions.wideLeftRightPagePadding,
                 child: Text(
-                  'Our Artificial Intelligence sensors are automatically set to monitor and detect abnormalities in health',
+                  AppLocalizations.of(context)
+                      .ourArtificialIntelligenceSensorsAreAutomaticallySetToMonitorAndDetectAbnormalitiesInHealth,
                   style: AppStyles.regularWhiteText,
                 ),
               ),
@@ -64,7 +67,7 @@ class _Foreground extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 CustomButton(
-                  buttonLabel: 'Sign up',
+                  buttonLabel: AppLocalizations.of(context).signUp,
                   onClick: () => Navigator.pushNamed(
                       context, RoutePaths.privacyPolicyScreen),
                   buttonColorBt: AppColors.whiteColor,
@@ -72,10 +75,9 @@ class _Foreground extends StatelessWidget {
                 ),
                 const SizedBox(height: 26),
                 CustomButton(
-                  buttonLabel: 'Already a member? Log in',
+                  buttonLabel: AppLocalizations.of(context).alreadyAMemberLogIn,
                   onClick: () =>
                       Navigator.pushNamed(context, RoutePaths.signInScreen),
-                  buttonColorBt: Colors.transparent,
                   labelColorBt: AppColors.whiteColor,
                   borderColorBt: AppColors.whiteColor,
                 ),

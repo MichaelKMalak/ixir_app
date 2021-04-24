@@ -1,9 +1,9 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app_const.dart';
+import '../../../common.dart';
 import '../../bloc/email_auth/email_auth_cubit.dart';
 import '../../navigation/route_paths.dart';
 import '../../utils/string_utils.dart';
@@ -55,7 +55,7 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Phone Number',
+                AppLocalizations.of(context).phoneNumber,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
@@ -77,13 +77,16 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: AppStyles.getTextFieldInputStyle(
-                            hintText: 'Enter your Phone Number'),
+                            hintText: AppLocalizations.of(context)
+                                .enterYourPhoneNumber),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'Please enter your Phone Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterYourPhoneNumber;
                           }
                           if (!StringUtils.isPhoneNumber(value)) {
-                            return 'Please enter a valid Phone Number';
+                            return AppLocalizations.of(context)
+                                .pleaseEnterAValidPhoneNumber;
                           }
                           return null;
                         },
@@ -99,19 +102,20 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Password',
+                AppLocalizations.of(context).password,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Password'),
+                    hintText: AppLocalizations.of(context).enterYourPassword),
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your Password';
+                    return AppLocalizations.of(context).pleaseEnterYourPassword;
                   } else if (value.length < 8) {
-                    return 'Please enter a Password with at least 8 characters';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAPasswordWithAtLeast8Characters;
                   }
                   setState(() {
                     password = value;
@@ -124,7 +128,7 @@ class SignInByPhoneWidgetState extends State<SignInByPhoneWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Sign in',
+                  buttonLabel: AppLocalizations.of(context).signIn,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();

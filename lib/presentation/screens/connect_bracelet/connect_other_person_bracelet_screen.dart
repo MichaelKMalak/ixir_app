@@ -349,7 +349,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: AppLocalization.of(context).registerNewBracelet,
+                  buttonLabel: AppLocalizations.of(context).registerNewBracelet,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../common.dart';
 import '../../domain/entities/user_entity.dart';
 import '../bloc/auth/auth_cubit.dart';
 import '../bloc/user/user_cubit.dart';
@@ -67,10 +68,10 @@ class __HomeState extends State<_Home> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('HOME PAGE'),
+                    Text('HOME PAGE PLACEHOLDER'),
                     SizedBox(height: 20),
                     CustomButton(
-                      buttonLabel: 'Logout',
+                      buttonLabel: AppLocalizations.of(context).logout,
                       onClick: () async {
                         await BlocProvider.of<AuthCubit>(context).logOut();
                       },

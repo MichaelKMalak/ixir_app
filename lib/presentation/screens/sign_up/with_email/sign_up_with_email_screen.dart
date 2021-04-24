@@ -2,6 +2,7 @@ import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../common.dart';
 import '../../../../domain/entities/user_entity.dart';
 import '../../../bloc/email_auth/email_auth_cubit.dart';
 import '../../../navigation/route_paths.dart';
@@ -19,8 +20,7 @@ class SignUpWithEmailScreen extends StatelessWidget {
     return PanelOverScaffold(
         topWidget: _TopWidget(),
         bottomWidget: _BottomWidget(),
-        backgroundColor: AppColors.blueColor,
-        foregroundColor: AppColors.whiteColor);
+        backgroundColor: AppColors.blueColor);
   }
 }
 
@@ -68,20 +68,22 @@ class __TopWidgetState extends State<_TopWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'First Name',
+                AppLocalizations.of(context).firstName,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.text,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your first name'),
+                    hintText: AppLocalizations.of(context).enterYourFirstName),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your first name';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterYourFirstName;
                   } else if (value.length < 2 ||
                       StringUtils.hasNonAlphabet(value)) {
-                    return 'Please enter a valid first name';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidFirstName;
                   }
                   return null;
                 },
@@ -93,20 +95,21 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Last Name',
+                AppLocalizations.of(context).lastName,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.text,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your last name'),
+                    hintText: AppLocalizations.of(context).enterYourLastName),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your last name';
+                    return AppLocalizations.of(context).pleaseEnterYourLastName;
                   } else if (value.length < 2 ||
                       StringUtils.hasNonAlphabet(value)) {
-                    return 'Please enter a valid last name';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidLastName;
                   }
                   return null;
                 },
@@ -117,21 +120,24 @@ class __TopWidgetState extends State<_TopWidget> {
                 },
               ),
               const SizedBox(height: 20),
-              const Text(
-                'Email Address',
+              Text(
+                AppLocalizations.of(context).emailAddress,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Email Address'),
+                    hintText:
+                        AppLocalizations.of(context).enterYourEmailAddress),
                 validator: (value) {
                   if (StringUtils.isEmpty(value)) {
-                    return 'Please enter your Email Address';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterYourEmailAddress;
                   }
                   if (!StringUtils.isEmail(value)) {
-                    return 'Please enter a valid Email Address';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAValidEmailAddress;
                   }
                   return null;
                 },
@@ -143,19 +149,20 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Password',
+                password,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Password'),
+                    hintText: AppLocalizations.of(context).enterYourPassword),
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your Password';
+                    return AppLocalizations.of(context).pleaseEnterYourPassword;
                   } else if (value.length < 8) {
-                    return 'Please enter a Password with at least 8 characters';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterAPasswordWithAtLeast8Characters;
                   }
                   setState(() {
                     password = value;
@@ -165,38 +172,43 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Password Confirmation',
+                AppLocalizations.of(context).passwordConfirmation,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               TextFormField(
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Password Confirmation'),
+                    hintText: AppLocalizations.of(context)
+                        .enterYourPasswordConfirmation),
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter your Password Confirmation';
+                    return AppLocalizations.of(context)
+                        .pleaseEnterYourPasswordConfirmation;
                   } else if (value != password) {
-                    return 'Please make sure passwords are matching';
+                    return AppLocalizations.of(context)
+                        .pleaseMakeSurePasswordsAreMatching;
                   }
                   return null;
                 },
               ),
               const SizedBox(height: 20),
               Text(
-                'Date of Birth',
+                AppLocalizations.of(context).dateOfBirth,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
               DateTimeFormField(
                 initialValue: dateOfBirth,
                 decoration: AppStyles.getTextFieldInputStyle(
-                    hintText: 'Enter your Date of Birth'),
+                    hintText:
+                        AppLocalizations.of(context).enterYourDateOfBirth),
                 mode: DateTimeFieldPickerMode.date,
-                validator: (e) =>
-                    (e?.year == null || e?.year > 2010 || e?.year < 1900)
-                        ? 'Please enter a valid date of birth'
-                        : null,
+                validator: (e) => (e?.year == null ||
+                        e?.year > 2010 ||
+                        e?.year < 1900)
+                    ? AppLocalizations.of(context).pleaseEnterAValidDateOfBirth
+                    : null,
                 autovalidateMode: AutovalidateMode.always,
                 onSaved: (value) {
                   setState(() {
@@ -209,7 +221,7 @@ class __TopWidgetState extends State<_TopWidget> {
                 ProgressWidget()
               else
                 CustomButton(
-                  buttonLabel: 'Submit',
+                  buttonLabel: AppLocalizations.of(context).submit,
                   onClick: () async {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
@@ -245,12 +257,13 @@ class _BottomWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Almost there!',
+            AppLocalizations.of(context).almostThere,
             style: AppStyles.header1WhiteText,
           ),
           const SizedBox(height: 26),
           Text(
-            'Once you finish this form, your account will be set and you will be able to connect your bracelet.',
+            AppLocalizations.of(context)
+                .onceYouFinishThisFormYourAccountWillBeSetAndYouWillBeAbleToConnectYourBracelet,
             style: AppStyles.regularWhiteText,
           ),
           const SizedBox(height: 35),

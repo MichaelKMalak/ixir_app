@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../common.dart';
 import '../../../bloc/email_auth/email_auth_cubit.dart';
 import '../../../navigation/route_paths.dart';
 import '../../../widgets/buttons/custom_button_widget.dart';
@@ -31,12 +32,13 @@ class SignUpWithEmailConfirmationScreen extends StatelessWidget {
                   backgroundColor: AppColors.lightBlueColor,
                 ),
                 Text(
-                  'We sent you an email',
+                  AppLocalizations.of(context).weSentYouAnEmail,
                   style: AppStyles.header1Primary,
                 ),
                 const SizedBox(height: 26),
                 Text(
-                  'We sent you an email to verify your account. Please check your inbox and your spam folder. If you didn’t get it, it’s okay, you can always resend it.',
+                  AppLocalizations.of(context)
+                      .weSentYouAnEmailToVerifyYourAccountPleaseCheckYourInboxAndYourSpamFolderIfYouDidntGetItItsOkayYouCanAlwaysResendIt,
                   style: AppStyles.regularPrimaryText,
                 ),
                 const SizedBox(height: 26),
@@ -46,7 +48,7 @@ class SignUpWithEmailConfirmationScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomButton(
-                        buttonLabel: 'Log in',
+                        buttonLabel: AppLocalizations.of(context).logIn,
                         onClick: () => Navigator.pushNamed(
                             context, RoutePaths.signInScreen),
                         buttonColorBt: AppColors.blueColor,
@@ -59,7 +61,8 @@ class SignUpWithEmailConfirmationScreen extends StatelessWidget {
                                 .sendEmailVerificationUseCase();
                           },
                           child: Text(
-                            'Resend Verification Email',
+                            AppLocalizations.of(context)
+                                .resendVerificationEmail,
                             style: AppStyles.regularPrimaryText.copyWith(
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline),
