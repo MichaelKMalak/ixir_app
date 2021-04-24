@@ -51,6 +51,7 @@ dependencies:
 
   # Others
   flutter_svg: ^0.19.3
+  connectivity_wrapper: ^1.0.4
   lorem_ipsum: any
   sized_context: ^0.2.1+1
   shared_preferences: ^0.5.12+4

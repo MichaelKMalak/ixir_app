@@ -25,7 +25,7 @@ class UserCubit extends Cubit<UserState> {
         } else {
           emit(UserLoaded(user));
         }
-      });
+      }).onError((e) => emit(UserFailure()));
     } on SocketException catch (e) {
       ErrorMessageProvider.show(e);
       emit(UserFailure());

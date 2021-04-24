@@ -158,7 +158,9 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
     final uid = getCurrentUID();
     final userStream = fireStore.collection('users').doc(uid).snapshots();
     return userStream.map((event) {
-      //TODO: if (!event.exists) auth.delete?
+      if (event.exists == false) {
+        throw Exception('User is not found');
+      }
       return UserModel.fromSnapshot(event);
     });
   }
@@ -196,7 +198,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
   Future<void> sendEmailVerification() async {
     final user = auth?.currentUser;
 
-    if (!user.emailVerified) {
+    if (!user.emailVerified && user != null) {
       await user.sendEmailVerification();
     }
   }

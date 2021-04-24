@@ -1,3 +1,4 @@
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -51,19 +52,27 @@ class MyApp extends StatelessWidget {
           create: (_) => di.sl<ConnectBraceletCubit>(),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Ixir',
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [Locale('en', ''), Locale('de', '')],
-        theme: AppThemes.getMainTheme(context),
-        initialRoute: RoutePaths.splashScreen,
-        onGenerateRoute: RouteGenerator.generateRoute,
+      child: ConnectivityAppWrapper(
+        app: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Ixir',
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [Locale('en', ''), Locale('de', '')],
+          theme: AppThemes.getMainTheme(context),
+          initialRoute: RoutePaths.splashScreen,
+          onGenerateRoute: RouteGenerator.generateRoute,
+          builder: (BuildContext context, Widget widget) {
+            return ConnectivityScreenWrapper(
+                message: AppLocalizations.of(context)
+                    .pleaseConnectToAnActiveInternetConnection,
+                child: widget);
+          },
+        ),
       ),
     );
   }

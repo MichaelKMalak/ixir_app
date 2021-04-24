@@ -10,6 +10,7 @@ import '../widgets/buttons/custom_button_widget.dart';
 import '../widgets/theme/app_colors.dart';
 import '../widgets/theme/app_dimensions.dart';
 import 'connect_bracelet/enter_bracelet_serial_screen.dart';
+import 'landing/welcome_screen.dart';
 import 'splash_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
 
       if (userState is UserFailure) {
-        return SplashScreen();
+        return WelcomeScreen();
       }
 
       if (userState is UserLoading) {

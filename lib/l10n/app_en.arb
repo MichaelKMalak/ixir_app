@@ -98,5 +98,6 @@
   "weSentYouAVerificationSms": "We sent you a verification SMS",
   "weSendYouAMessageToYourPhoneWithAVerificationCodeIfYouDidntGetItItsOkayYouCanAlwaysResendIt": "We send you a message to your phone with a verification code. If you didn’t get it, it’s okay, you can always resend it.",
   "confirm": "Confirm",
-  "logIn": "Log in"
+  "logIn": "Log in",
+  "pleaseConnectToAnActiveInternetConnection": "Please connect to an active internet connection!"
 }

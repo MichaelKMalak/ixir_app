@@ -79,7 +79,7 @@ class SignInByEmailWidgetState extends State<SignInByEmailWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                password,
+                AppLocalizations.of(context).password,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),

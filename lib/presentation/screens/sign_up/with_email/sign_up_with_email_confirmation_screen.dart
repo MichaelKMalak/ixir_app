@@ -13,7 +13,14 @@ import '../../../widgets/theme/app_colors.dart';
 import '../../../widgets/theme/app_dimensions.dart';
 import '../../../widgets/theme/app_styles.dart';
 
-class SignUpWithEmailConfirmationScreen extends StatelessWidget {
+class SignUpWithEmailConfirmationScreen extends StatefulWidget {
+  @override
+  _SignUpWithEmailConfirmationScreenState createState() =>
+      _SignUpWithEmailConfirmationScreenState();
+}
+
+class _SignUpWithEmailConfirmationScreenState
+    extends State<SignUpWithEmailConfirmationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

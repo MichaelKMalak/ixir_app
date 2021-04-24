@@ -149,7 +149,7 @@ class __TopWidgetState extends State<_TopWidget> {
               ),
               const SizedBox(height: 20),
               Text(
-                password,
+                AppLocalizations.of(context).password,
                 style: AppStyles.inputLabelTextStyle,
               ),
               const SizedBox(height: 9),
