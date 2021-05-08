@@ -11,7 +11,7 @@ class StringUtils {
 
   static bool isPhoneNumber(String value) {
     if (isEmpty(value)) return false;
-    return RegExp(r'^[0-9]{10,12}$').hasMatch(value);
+    return RegExp(r'^[0-9]{8,12}$').hasMatch(value);
   }
 
   static bool isNumeric(String s) {
