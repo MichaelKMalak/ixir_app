@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ixir_app/presentation/bloc/auth/auth_cubit.dart';
 
 import '../../../common.dart';
+import '../../bloc/auth/auth_cubit.dart';
 import '../../bloc/connect_bracelet/connect_bracelet_cubit.dart';
 import '../../navigation/route_paths.dart';
 import '../../widgets/buttons/custom_button_widget.dart';
@@ -77,9 +77,6 @@ class __TopWidgetState extends State<_TopWidget> {
                   if (value.isEmpty) {
                     return AppLocalizations.of(context)
                         .pleaseEnterYourBraceletSerialNumber;
-                  } else if (value.length < 4) {
-                    return AppLocalizations.of(context)
-                        .pleaseEnterAValidSerialNumber;
                   }
 
                   return null;
