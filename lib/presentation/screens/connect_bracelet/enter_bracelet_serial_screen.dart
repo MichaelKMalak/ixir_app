@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ixir_app/presentation/bloc/auth/auth_cubit.dart';
 
 import '../../../common.dart';
 import '../../bloc/connect_bracelet/connect_bracelet_cubit.dart';
@@ -113,6 +114,24 @@ class __TopWidgetState extends State<_TopWidget> {
                 labelColorBt: AppColors.blueColor,
                 borderColorBt: AppColors.blueColor,
               ),
+              const SizedBox(height: 26),
+              CustomButton(
+                buttonLabel: AppLocalizations.of(context).logout,
+                onClick: () async {
+                  await BlocProvider.of<AuthCubit>(context).logOut();
+                },
+                labelColorBt: AppColors.blueColor,
+                borderColorBt: AppColors.blueColor,
+              ),
+              const SizedBox(height: 26),
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    AppLocalizations.of(context).cantFindTheSerialNumber,
+                    style: AppStyles.regularPrimaryText.copyWith(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline),
+                  )),
               const SizedBox(height: AppDimensions.defaultBottomPaddingValue),
             ],
           ),
