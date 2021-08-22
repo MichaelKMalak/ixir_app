@@ -30,20 +30,17 @@ class BaseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return RaisedButton(
       onPressed: isEnableBt ? onClickBt : null,
-      style: ElevatedButton.styleFrom(
-        primary: isEnableBt ? buttonColor : buttonDisabledColor,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide(
-            color: isEnableBt ? borderColor : borderDisabledColor,
-          ),
+      color: isEnableBt ? buttonColor : buttonDisabledColor,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30),
+        side: BorderSide(
+          color: isEnableBt ? borderColor : borderDisabledColor,
         ),
-        padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-        alignment: Alignment.center,
       ),
+      padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
       child: SizedBox(
         height: 55,
         child: Row(
@@ -52,6 +49,7 @@ class BaseButton extends StatelessWidget {
             Flexible(
               child: Text(
                 labelBt ?? '',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: isEnableBt ? labelColor : labelDisabledColor,
                     fontSize: 14.0,
